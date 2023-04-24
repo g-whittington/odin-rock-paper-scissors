@@ -10,7 +10,7 @@ function getComputerChoice() {
 }
 
 // Plays a round of rock, paper, scissors and declares a winner
-function round(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
 
