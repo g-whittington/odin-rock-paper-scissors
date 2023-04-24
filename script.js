@@ -2,6 +2,9 @@
 
 // Date: 04-23-2023
 
+let playerWins = 0;
+let computerWis = 0;
+
 // Computes the computer choice
 function getComputerChoice() {
     const CHOICE = ["rock", "paper", "scissors"];
@@ -20,29 +23,35 @@ function playRound(playerSelection, computerSelection) {
 
     else if (playerSelection === "rock"){
         if (computerSelection === "paper"){
+            computerWis++;
             return `You Lose! ${computerSelection} beats ${playerSelection}`;
         }
 
         else {
+            playerWins++;
             return `You Win! ${playerSelection} beats ${computerSelection}`;
         }
     }
 
     else if (playerSelection === "paper"){
         if (computerSelection === "scissors"){
+            computerWis++;
             return `You Lose! ${computerSelection} beats ${playerSelection}`;
         }
 
         else {
+            playerWins++;
             return `You Win! ${playerSelection} beats ${computerSelection}`;
         }
     }
     else if (playerSelection === "scissors"){
         if (computerSelection === "rock"){
+            computerWis++;
             return `You Lose! ${computerSelection} beats ${playerSelection}`;
         }
 
         else {
+            playerWins++;
             return `You Win! ${playerSelection} beats ${computerSelection}`;
         }
     }
@@ -51,24 +60,12 @@ function playRound(playerSelection, computerSelection) {
 // Plays out x amount rounds for one complete game
 function game() {
     const ROUNDS = 5;
-    let playerWins = 0;
-    let computerWis = 0;
 
     for (i = 0; i < ROUNDS; i++) {
         const playerChoice = prompt("Enter your choice - rock, paper, scissors: ");
         const computerChoice = getComputerChoice();
 
-        let result = playRound(playerChoice, computerChoice);
-
-        if (result[4] === 'L') {
-            computerWis++;
-        }
-
-        else if (result[4] === 'W'){
-            playerWins++;
-        }
-
-        console.log(result);
+        console.log(playRound(playerChoice, computerChoice));
     }
 
     if (playerWins > computerWis){
