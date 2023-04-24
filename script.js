@@ -47,3 +47,41 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 }
+
+// Plays out x amount rounds for one complete game
+function game() {
+    const ROUNDS = 5;
+    let playerWins = 0;
+    let computerWis = 0;
+
+    for (i = 0; i < ROUNDS; i++) {
+        const playerChoice = prompt("Enter your choice - rock, paper, scissors: ");
+        const computerChoice = getComputerChoice();
+
+        let result = playRound(playerChoice, computerChoice);
+
+        if (result[4] === 'L') {
+            computerWis++;
+        }
+
+        else if (result[4] === 'W'){
+            playerWins++;
+        }
+
+        console.log(result);
+    }
+
+    if (playerWins > computerWis){
+        alert("Good Job Player! You have won :)")
+    }
+
+    else if (playerWins < computerWis) {
+        alert("Do Better Player! You have lost :(")
+    }
+
+    else {
+        alert("Congratulations! It's a Tie!")
+    }
+}
+
+game();
